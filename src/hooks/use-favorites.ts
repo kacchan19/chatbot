@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import type { Message } from '@/lib/types';
 import { useToast } from './use-toast';
 
-const FAVORITES_KEY = 'zamrudchat_favorites';
+const FAVORITES_KEY = 'chatbot_favorites';
 
 export function useFavorites() {
   const { toast } = useToast();
@@ -24,8 +24,8 @@ export function useFavorites() {
     } catch (error) {
       console.error('Failed to load favorites from localStorage', error);
       toast({
-        title: 'Error',
-        description: 'Could not load your saved favorites.',
+        title: 'Kesalahan',
+        description: 'Tidak dapat memuat favorit Anda yang tersimpan.',
         variant: 'destructive',
       });
     }
@@ -39,8 +39,8 @@ export function useFavorites() {
       } catch (error) {
         console.error('Failed to save favorites to localStorage', error);
         toast({
-          title: 'Error',
-          description: 'Could not save your favorites.',
+          title: 'Kesalahan',
+          description: 'Tidak dapat menyimpan favorit Anda.',
           variant: 'destructive',
         });
       }
@@ -55,8 +55,8 @@ export function useFavorites() {
           return prevFavorites;
         }
         toast({
-          title: 'Added to Favorites',
-          description: 'The answer has been saved.',
+          title: 'Ditambahkan ke Favorit',
+          description: 'Jawaban telah disimpan.',
         });
         return [...prevFavorites, message];
       });
@@ -70,8 +70,8 @@ export function useFavorites() {
         prevFavorites.filter((fav) => fav.id !== messageId)
       );
       toast({
-        title: 'Removed from Favorites',
-        description: 'The answer has been removed from your saved list.',
+        title: 'Dihapus dari Favorit',
+        description: 'Jawaban telah dihapus dari daftar simpanan Anda.',
       });
     },
     [toast]

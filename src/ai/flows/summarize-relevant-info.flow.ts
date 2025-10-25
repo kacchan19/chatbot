@@ -1,7 +1,7 @@
 'use server';
 
 /**
- * @fileOverview A flow for summarizing relevant information about Indonesian topics based on a user query.
+ * @fileOverview A flow for summarizing relevant information based on a user query.
  *
  * - summarizeRelevantInfo - A function that summarizes information based on a query.
  * - SummarizeRelevantInfoInput - The input type for the summarizeRelevantInfo function.
@@ -12,11 +12,7 @@ import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
 const SummarizeRelevantInfoInputSchema = z.object({
-  query: z.string().describe('The user query about Indonesian topics.'),
-  news: z.string().optional().describe('Relevant news articles related to the query.'),
-  economicData: z.string().optional().describe('Relevant economic data related to the query.'),
-  demographics: z.string().optional().describe('Relevant demographic data related to the query.'),
-  culturalFacts: z.string().optional().describe('Relevant cultural facts related to the query.'),
+  query: z.string().describe('The user query.'),
 });
 export type SummarizeRelevantInfoInput = z.infer<typeof SummarizeRelevantInfoInputSchema>;
 
@@ -33,7 +29,7 @@ const prompt = ai.definePrompt({
   name: 'summarizeRelevantInfoPrompt',
   input: {schema: SummarizeRelevantInfoInputSchema},
   output: {schema: SummarizeRelevantInfoOutputSchema},
-  prompt: `You are an AI chatbot providing information about Indonesia. A user has the following query: {{{query}}}.\n\nSummarize the most relevant and up-to-date information from the following sources to answer the query. Be concise and informative.\n\n{% if news %}News Articles: {{{news}}}\n{% endif %}{% if economicData %}Economic Data: {{{economicData}}}\n{% endif %}{% if demographics %}Demographics: {{{demographics}}}\n{% endif %}{% if culturalFacts %}Cultural Facts: {{{culturalFacts}}}\n{% endif %}`,
+  prompt: `You are a helpful AI chatbot. A user has the following query: {{{query}}}.\n\nProvide a conversational and helpful response.`,
 });
 
 const summarizeRelevantInfoFlow = ai.defineFlow(

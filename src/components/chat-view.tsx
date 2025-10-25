@@ -14,7 +14,7 @@ const initialMessages: Message[] = [
   {
     id: nanoid(),
     role: 'assistant',
-    content: "Selamat datang! I am ZamrudChat, your AI assistant for all things Indonesia. How can I help you today? (Ask me about news, economy, culture, and more!)",
+    content: "Halo! Saya adalah asisten AI Anda. Apa yang bisa saya bantu hari ini?",
     createdAt: new Date(),
   },
 ];
@@ -48,8 +48,8 @@ export function ChatView() {
       setMessages((prev) => [...prev, aiMessage]);
     } catch (error) {
       toast({
-        title: 'An error occurred.',
-        description: 'Failed to get a response from the AI. Please try again.',
+        title: 'Terjadi kesalahan.',
+        description: 'Gagal mendapatkan respons dari AI. Silakan coba lagi.',
         variant: 'destructive',
       });
     } finally {
@@ -65,8 +65,8 @@ export function ChatView() {
         ) : (
           <EmptyState
             icon={<Bot />}
-            title="Welcome to ZamrudChat"
-            description="Start the conversation by asking a question about Indonesia below."
+            title="Selamat Datang di ChatBot"
+            description="Mulai percakapan dengan mengetik pertanyaan Anda di bawah."
           />
         )}
       </div>

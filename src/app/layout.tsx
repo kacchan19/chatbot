@@ -3,8 +3,8 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'ZamrudChat',
-  description: 'A modern Indonesian chatbot providing up-to-date information about Indonesia.',
+  title: 'Chatbot Interaktif',
+  description: 'Aplikasi chatbot interaktif berbahasa Indonesia untuk percakapan umum.',
 };
 
 export default function RootLayout({

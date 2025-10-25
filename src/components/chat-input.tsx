@@ -35,7 +35,7 @@ export function ChatInput({ onSendMessage, isLoading }: ChatInputProps) {
         value={content}
         onChange={(e) => setContent(e.target.value)}
         onKeyDown={handleKeyDown}
-        placeholder="Ask about Indonesia..."
+        placeholder="Ketik pesan Anda..."
         className="w-full resize-none rounded-full border border-border bg-card pr-14 shadow-sm"
         rows={1}
         maxRows={5}
@@ -48,7 +48,7 @@ export function ChatInput({ onSendMessage, isLoading }: ChatInputProps) {
         className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full text-accent hover:text-accent disabled:opacity-50"
       >
         <Send className="size-5" />
-        <span className="sr-only">Send message</span>
+        <span className="sr-only">Kirim pesan</span>
       </Button>
     </form>
   );

@@ -28,7 +28,7 @@ export function AppShell() {
           <div className="flex items-center gap-2 p-2">
             <Logo className="size-8" />
             <span className="text-lg font-semibold text-sidebar-primary-foreground">
-              ZamrudChat
+              ChatBot
             </span>
           </div>
         </SidebarHeader>
@@ -48,10 +48,10 @@ export function AppShell() {
               <SidebarMenuButton
                 onClick={() => setActiveView('favorites')}
                 isActive={activeView === 'favorites'}
-                tooltip="Favorites"
+                tooltip="Favorit"
               >
                 <Heart />
-                <span>Favorites</span>
+                <span>Favorit</span>
               </SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>

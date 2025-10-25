@@ -14,7 +14,7 @@ export function FavoritesView() {
   if (!isLoaded) {
     return (
       <div className="flex h-full items-center justify-center p-4">
-        <p>Loading favorites...</p>
+        <p>Memuat favorit...</p>
       </div>
     );
   }
@@ -24,10 +24,10 @@ export function FavoritesView() {
       <header className="border-b p-4">
         <h1 className="flex items-center gap-2 text-xl font-bold">
           <Heart className="size-5 text-accent" />
-          Favorite Answers
+          Jawaban Favorit
         </h1>
         <p className="text-muted-foreground">
-          Review your saved answers for quick access.
+          Tinjau jawaban yang Anda simpan untuk akses cepat.
         </p>
       </header>
       <ScrollArea className="flex-1">
@@ -35,8 +35,8 @@ export function FavoritesView() {
           {favorites.length === 0 ? (
             <EmptyState
               icon={<Heart />}
-              title="No Favorites Yet"
-              description="Click the heart icon on an answer to save it here."
+              title="Belum Ada Favorit"
+              description="Klik ikon hati pada sebuah jawaban untuk menyimpannya di sini."
             />
           ) : (
             <div className="space-y-4">
@@ -46,14 +46,14 @@ export function FavoritesView() {
                     <div className="flex items-center gap-2">
                       <ChatAvatar role="assistant" />
                       <CardTitle className="text-base font-medium">
-                        AI Assistant
+                        Asisten AI
                       </CardTitle>
                     </div>
                     <Button
                       variant="ghost"
                       size="icon"
                       onClick={() => removeFavorite(message.id)}
-                      aria-label="Remove from favorites"
+                      aria-label="Hapus dari favorit"
                     >
                       <Trash2 className="size-4 text-destructive" />
                     </Button>
