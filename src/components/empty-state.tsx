@@ -6,12 +6,14 @@ interface EmptyStateProps {
   title: string;
   description: string;
   className?: string;
+  children?: React.ReactNode;
 }
 
-export function EmptyState({ icon, title, description, className }: EmptyStateProps) {
+export function EmptyState({ icon, title, description, className, children }: EmptyStateProps) {
   return (
-    <div className={cn("flex h-full items-center justify-center p-4", className)}>
-      <Card className="w-full max-w-md border-2 border-dashed bg-transparent shadow-none">
+    <div className={cn("flex h-full flex-col justify-between p-4", className)}>
+      {children}
+      <Card className="w-full max-w-md mx-auto border-2 border-dashed bg-transparent shadow-none">
         <CardContent className="p-8 text-center">
           <div className="mx-auto flex size-12 items-center justify-center rounded-full bg-secondary text-secondary-foreground">
             {icon}
@@ -20,6 +22,7 @@ export function EmptyState({ icon, title, description, className }: EmptyStatePr
           <p className="mt-1 text-sm text-muted-foreground">{description}</p>
         </CardContent>
       </Card>
+      <div />
     </div>
   );
 }

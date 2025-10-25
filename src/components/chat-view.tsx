@@ -9,6 +9,7 @@ import { ChatMessages } from './chat-messages';
 import { ChatInput } from './chat-input';
 import { EmptyState } from './empty-state';
 import { Bot } from 'lucide-react';
+import { ChatRecommendations } from './chat-recommendations';
 
 const initialMessages: Message[] = [
   {
@@ -57,20 +58,25 @@ export function ChatView() {
     }
   };
 
+  const showRecommendations = messages.length === 1;
+
   return (
     <div className="flex h-full flex-col">
       <div className="flex-1 overflow-y-auto">
-        {messages.length > 1 ? (
+        {messages.length > 1 || !showRecommendations ? (
           <ChatMessages messages={messages} isLoading={isLoading} />
         ) : (
           <EmptyState
             icon={<Bot />}
             title="Selamat Datang di ChatBot"
-            description="Mulai percakapan dengan mengetik pertanyaan Anda di bawah."
-          />
+            description="Mulai percakapan dengan mengetik pertanyaan Anda di bawah atau pilih dari rekomendasi."
+          >
+             <ChatMessages messages={messages} isLoading={isLoading} />
+          </EmptyState>
         )}
       </div>
       <div className="p-4">
+        {showRecommendations && <ChatRecommendations onSendMessage={handleSendMessage} />}
         <ChatInput onSendMessage={handleSendMessage} isLoading={isLoading} />
       </div>
     </div>
